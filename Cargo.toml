@@ -1,0 +1,29 @@
+[package]
+name = "git-gallery"
+version = "0.1.0"
+authors = ["Rik Harink <rikharink@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+glob = "0.3.0"
+image = "0.22.3"
+lazy_static = "1.4.0"
+rocket = "0.4.2"
+tera = "1"
+toml = "0.5"
+tungstenite = "0.9.2"
+walkdir = "2.2.9"
+
+[dependencies.clap]
+version = "3.0.0-beta.1"
+git = "https://github.com/clap-rs/clap"
+features = ["yaml"]
+
+[dependencies.rocket_contrib]
+version = "0.4.2"
+default-features = false
+features = ["tera_templates", "serve"]
+
+[dependencies.serde]
+version = "1.0"
+features = ["derive"]

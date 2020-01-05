@@ -1,0 +1,143 @@
+@import "reset.css";
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.gallery {
+  columns: 4 200px;
+  column-gap: 1rem;
+  padding: 32px;
+}
+
+.gallery > div {
+  margin: 0 1rem 1rem 0;
+  display: inline-block;
+  width: 100%;
+}
+
+.album,
+.photo {
+  position: relative;
+  overflow: hidden;
+  transition: 200ms;
+}
+
+.album *,
+.photo * {
+  transition: 200ms;
+}
+
+.filter:hover {
+  position: relative;
+  filter: sepia(30%);
+  transform: scale(1.1);
+}
+
+.filter:hover::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  pointer-events: none;
+  mix-blend-mode: color-burn;
+  background: radial-gradient(circle, #e6e7e0 40%, rgba(43, 42, 161, 0.6) 110%);
+}
+
+.album > h2 {
+  color: white;
+  text-decoration: none;
+  z-index: 2;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  width: 100%;
+}
+
+figure {
+  display: flex;
+  justify-content: center;
+}
+
+.lightbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  position: fixed;
+  z-index: 9999;
+  width: 100vw !important;
+  height: 100vh;
+  top: -100%;
+  left: 0;
+  color: #333333;
+  transition: opacity 0.5s ease-in-out;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.lightbox:target {
+  /** Show lightbox when it is target */
+  opacity: 1;
+  outline: none;
+  top: 0;
+}
+
+.lightbox .box {
+  width: min-content;
+  min-width: 500px;
+  margin: 2% auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 1px 26px -3px #777777;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox .title {
+  margin: 0;
+  padding: 0 0 10px 0px;
+  border-bottom: 1px #ccc solid;
+  font-size: 22px;
+}
+
+.lightbox .content {
+  display: block;
+  position: relative;
+}
+
+.lightbox .close {
+  display: block;
+  float: right;
+  text-decoration: none;
+  font-size: 22px;
+  color: #858585;
+  cursor: pointer;
+}
+
+.clear {
+  display: block;
+  clear: both;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}" />
+    <meta name="author" content="{{ author }}" />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>{{ title }}</h1>
+    </header>
+    <main>
+      <div class="gallery">
+        {% for album in albums -%}
+        <a href="{{ album.path }}">
+          <div class="album">
+            <h2>{{ album.title }}</h2>
+            <figure class="filter">
+              <img src="{{ album.thumbnail }}" />
+            </figure>
+          </div>
+        </a>
+        {%- endfor %} {% for photo in photos -%}
+        <div class="photo">
+          <a href="#img{{ loop.index }}">
+            <figure class="filter">
+              <img src="{{ photo.path }}" />
+            </figure>
+          </a>
+        </div>
+        <a href="#" class="lightbox" id="img{{ loop.index }}">
+          <div class="box">
+            <div class="content">
+              <img src="{{ photo.path }}" />
+            </div>
+          </div>
+        </a>
+        {%- endfor %}
+      </div>
+    </main>
+    <footer>
+      <span>
+        Made with ❤ by <a href="https://github.com/Meidor">Rik Harink</a>
+      </span>
+    </footer>
+  </body>
+</html>

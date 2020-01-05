@@ -1,0 +1,16 @@
+name: git-gallery
+version: "1.0"
+author: Rik Harink <rik@har.ink>
+about: turn your git repo into a gallery
+args:
+  - config:
+      short: c
+      long: config
+      value_name: FILE
+      help: Sets a custom config file
+      takes_value: true
+subcommands:
+  - serve:
+      about: Serve the current folder
+  - init:
+      about: Initialize a new gallery
